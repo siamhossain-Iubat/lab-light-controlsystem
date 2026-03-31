@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Light Control</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        .light {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+        #light1{
+                        width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lab Light Control Panel</h1>
+
+    <!-- Light 1 -->
+    <div id="light1" class="light"></div>
+
+    <div id="light2" class="light"></div>
+
+    <button onclick="turnOn('light1')">ON</button>
+    <button onclick="turnOff('light1')">OFF</button>
+    <button onclick="increaseBrightness('light1')">Brightness +</button>
+    <button onclick="decreaseBrightness('light1')">Brightness -</button>
+
+    <script>
+        function turnOn(id) {
+            document.getElementById(id).style.backgroundColor = "yellow";
+        }
+
+        function turnOff(id) {
+            document.getElementById(id).style.backgroundColor = "gray";
+        }
+
+        function increaseBrightness(id) {
+            let light = document.getElementById(id);
+            let current = window.getComputedStyle(light).opacity;
+
+            light.style.backgroundColor = "yellow";
+            light.style.opacity = parseFloat(current) + 0.2;
+        }
+
+        function decreaseBrightness(id) {
+            let light = document.getElementById(id);
+            let current = window.getComputedStyle(light).opacity;
+
+            light.style.opacity = parseFloat(current) - 0.2;
+        }
+    </script>
+
+</body>
+</html>
